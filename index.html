@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolos que já li</title>
+    <style>
+        body {
+            background-color: lightpink; 
+            margin: 0; 
+            padding: 20px; 
+        }
+
+        h1 {
+            color: white; 
+            text-align: center; 
+        }
+
+        h2 {
+            color: #333; 
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bolos que já fiz</h1>
+    <form action="/criar" method="post">
+        <input type="text" name="nome" placeholder="Digite o nome do bolo" required>
+        <input type="submit" value="Inserir">
+    </form>
+    <h2>Bolos:</h2>
+    <ul>
+        {% for bolo in bolos %}
+            <li>{{ bolo }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <h2>Atualizar nome do Bolo:</h2>
+    <form action="/alterar" method="post">
+        <input type="text" name="old_name" placeholder="Nome atual" required>
+        <input type="text" name="new_name" placeholder="Novo nome" required>
+        <input type="submit" value="Alterar">
+    </form>
+    <h2>Apagar nome do bolo:</h2>
+    <form action="/apagar" method="post">
+        <input type="text" name="nome" placeholder="Nome do bolo" required>
+        <input type="submit" value="Apagar">
+    </form>
+</body>
+</html>
